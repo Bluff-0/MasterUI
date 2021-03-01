@@ -1,0 +1,44 @@
+.x-btn-text-icon {
+	font-family: 'FontAwesome';
+}
+.x-btn-icon-el {
+	color: #5fa2dd !important;
+}
+.icon-alternate {
+	color: #fff !important;
+	font-family: 'FontAwesome';
+}
+
+/* ICONS */
+.btn-icon-resetSort:after {
+	content: '\f0e2';
+}
+.btn-icon-export:after {
+	content: '\f0f6';
+}
+.btn-icon-exportAll:after {
+	content: '\f02d';
+}
+.btn-icon-add:after {
+	content: '\f055';
+}
+.btn-icon-edit:after {
+	content: '\f044';
+}
+.btn-icon-delete:after {
+	content: '\f056';
+}
+.btn-icon-errecast:after {
+	content: '\f06e';
+}
+.btn-icon-recycle:after {
+	content: '\f1b8';
+}
+.btn-icon-bomb:after {
+	content: '\f1e2';
+}
+
+
+.sakila-movieAdvanceSearch>.x-panel-body-default .x-panel-body-default {
+	border-color: transparent;
+}

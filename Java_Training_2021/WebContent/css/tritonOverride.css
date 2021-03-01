@@ -1,0 +1,14 @@
+@charset "ISO-8859-1";
+
+.x-tab.x-tab-active.x-tab-default {
+	border-radius: 8px 8px 0 0;
+}
+.x-window-body-default .x-panel-body-default {
+	padding: 10px;
+}
+.x-form-item {
+	width: 100%;
+}
+.x-toolbar-footer {
+	border-width: 1px;
+}

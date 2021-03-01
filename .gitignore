@@ -1,0 +1,8 @@
+.metadata
+Servers/
+./.classpath
+./.project
+./.settings/
+./build/
+./WebContent/WEB-INF/lib/
+./WebContent/js/extjs/

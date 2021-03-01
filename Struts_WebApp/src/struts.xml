@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">  
+
+<struts>
+ 
+    <package name="sakila" namespace="/sakila" extends="json-default">
+		
+		<action name="getData" class="com.highradius.training.struts.action.SakilaRetrieval"  method="getData">
+			<result name= "success" type= "json">
+				<param name= "root">result</param>
+			</result>
+			<result name="error">/Fallback/Error.jsp</result>
+		</action>
+		
+		<action name="modifyData" class="com.highradius.training.struts.manager.SakilaManager"  method="modifyData">
+			<result name= "success" type= "json">
+				<param name= "root">success</param>
+			</result>
+		</action>
+		
+	</package>
+    
+    <package name="test" namespace="/dummyTest" extends="struts-default" >
+        <action name="testPages" class="com.highradius.training.struts.action.DummyAction">
+			<result name="success">/Fallback/Success.jsp</result>
+			<result name="error">/Fallback/Error.jsp</result>
+        </action>
+    </package>
+    
+<!--     <package name="fallback" namespace="" extends="struts-default"> -->
+<!--         <action name="*"> -->
+<!--             <result>/Fallback/Error.jsp</result> -->
+<!--         </action> -->
+<!-- 	</package> -->
+	
+</struts>
