@@ -108,12 +108,46 @@ public class SakilaManager{
 						case "0":
 						default:
 							
-							this.query= "DELETE FROM `film` WHERE `film_id` IN (?)";
+							this.query= "DELETE FROM `rental` WHERE `inventory_id` IN ( SELECT `inventory_id` FROM `inventory` WHERE film_id IN (?) )";
 							this.query= this.query.replace("?", getFilm_id());
 							
 							statement = this.dbcon.prepareStatement(query);
 							
 					    	statement.executeUpdate();
+					    	statement.close();
+					    	
+					    	this.query= "DELETE FROM `inventory` WHERE `film_id` IN (?)";
+							this.query= this.query.replace("?", getFilm_id());
+							
+							statement = this.dbcon.prepareStatement(query);
+							
+					    	statement.executeUpdate();
+					    	statement.close();
+
+					    	this.query= "DELETE FROM `film_category` WHERE `film_id` IN (?)";
+							this.query= this.query.replace("?", getFilm_id());
+							
+							statement = this.dbcon.prepareStatement(query);
+							
+					    	statement.executeUpdate();
+					    	statement.close();
+					    	
+					    	this.query= "DELETE FROM `film_actor` WHERE `film_id` IN (?)";
+							this.query= this.query.replace("?", getFilm_id());
+							
+							statement = this.dbcon.prepareStatement(query);
+							
+					    	statement.executeUpdate();
+					    	statement.close();
+					    	
+					    	this.query= "DELETE FROM `film` WHERE `film_id` IN (?)";
+							this.query= this.query.replace("?", getFilm_id());
+							
+							statement = this.dbcon.prepareStatement(query);
+							
+					    	statement.executeUpdate();
+					    	statement.close();
+					    	
 					    	setResult("{\"status\" : \"Deleted\"}");
 					    	
 							break;

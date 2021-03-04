@@ -14,3 +14,10 @@ Struts_WebApp/.settings
 Struts_WebApp/build
 Struts_WebApp/WebContent/WEB-INF/lib
 Struts_WebApp/WebContent/js/extjs
+
+Spring_WebApp/.classpath
+Spring_WebApp/.project
+Spring_WebApp/.settings
+Spring_WebApp/build
+Spring_WebApp/WebContent/WEB-INF/lib
+Spring_WebApp/WebContent/js/extjs

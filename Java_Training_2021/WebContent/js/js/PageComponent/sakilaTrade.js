@@ -108,7 +108,8 @@ addElementsToSakilaStore= function() {
 	    			var formValues= inputForm.getFieldValues();
 	    			formValues['qType']= 'insert';
 	    			Ext.Ajax.request({
-			            url: '/Java_Training_2021/api/sakilaModification',
+			            //url: '/Java_Training_2021/api/sakilaModification',
+			            url: '/Struts_WebApp/sakila/modifyData.action',
 			            method: 'GET',
 			            timeout: 60000,
 			            params: formValues,
@@ -266,7 +267,8 @@ editElementsToSakilaStore= function(storeConstructorObject) {
 	    			formValues['qType']= 'update';
 	    			
 	    			Ext.Ajax.request({
-			            url: '/Java_Training_2021/api/sakilaModification',
+			            //url: '/Java_Training_2021/api/sakilaModification',
+			            url: '/Struts_WebApp/sakila/modifyData.action',
 			            method: 'GET',
 			            timeout: 60000,
 			            params: formValues,
@@ -318,6 +320,38 @@ deleteElementsFromSakilaStore = function (storeConstructorObject) {
 	}
 	Ext.Ajax.request({
         //url: '/Java_Training_2021/api/sakilaModification',
+        url: '/Struts_WebApp/sakila/modifyData.action',
+        method: 'GET',
+        timeout: 60000,
+        params: transmitObj,
+        headers:
+        {
+            'Content-Type': 'application/json'
+        },
+        success: function (response) {
+        	Ext.toast(`${idArray} Data deleted Successfully`);
+        	sakilaStore.load();
+        },
+        failure: function (response) {
+            Ext.toast("Could not perform the operation. Try again later.");
+
+        }
+    });
+}
+
+
+softDeleteElementsFromSakilaStore = function (storeConstructorObject) {
+	var rowSelection= storeConstructorObject;
+	var idArray=[];
+	rowSelection.forEach(d => idArray.push(d.data.film_id));
+	idArray= idArray.toString();
+	
+	var transmitObj= {
+		film_id: idArray,
+		qType: 'delete',
+		soft: 1,
+	}
+	Ext.Ajax.request({
         url: '/Struts_WebApp/sakila/modifyData.action',
         method: 'GET',
         timeout: 60000,
@@ -461,7 +495,7 @@ var softDeleteSakilaData= {
         disabled: true,
         itemId: 'softDeleteButton',
         handler : function () {
-        	deleteElementsFromSakilaStore(sakilaMovieGrid.getSelectionModel().getSelection());
+        	softDeleteElementsFromSakilaStore(sakilaMovieGrid.getSelectionModel().getSelection());
         }
 };
 
@@ -472,7 +506,7 @@ var sakilaTradePaginationToolbar= new Ext.PagingToolbar({
         emptyMsg: "No movie to display",
         store: sakilaStore,
     	dock: 'top',
-    	items: ['-',resetSortSakilaData,'-',addSakilaData,'-',editSakilaData,'-',deleteSakilaData], //'-',softDeleteSakilaData,
+    	items: ['-',resetSortSakilaData,'-',addSakilaData,'-',editSakilaData,'-',softDeleteSakilaData,'-',deleteSakilaData],
 });
 
 
@@ -528,17 +562,17 @@ var sakilaMovieGrid= new Ext.grid.Panel({
 			if(selectedLength === 1){
 				sakilaTradePaginationToolbar.getComponent('editButton').setDisabled(false);
 				sakilaTradePaginationToolbar.getComponent('deleteButton').setDisabled(false);
-				//sakilaTradePaginationToolbar.getComponent('softDeleteButton').setDisabled(false);
+				sakilaTradePaginationToolbar.getComponent('softDeleteButton').setDisabled(false);
 			}
 			else if(selectedLength >= 1){
 				sakilaTradePaginationToolbar.getComponent('editButton').setDisabled(true);
 				sakilaTradePaginationToolbar.getComponent('deleteButton').setDisabled(false);
-				//sakilaTradePaginationToolbar.getComponent('softDeleteButton').setDisabled(false);
+				sakilaTradePaginationToolbar.getComponent('softDeleteButton').setDisabled(false);
 			}
 			else {
 				sakilaTradePaginationToolbar.getComponent('editButton').setDisabled(true);
 				sakilaTradePaginationToolbar.getComponent('deleteButton').setDisabled(true);
-				//sakilaTradePaginationToolbar.getComponent('softDeleteButton').setDisabled(true);
+				sakilaTradePaginationToolbar.getComponent('softDeleteButton').setDisabled(true);
 			}
 		}
 	}
