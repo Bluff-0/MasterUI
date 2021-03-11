@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">  
+
+<struts>
+    <package name="sakila" namespace="/sakila_spring" extends="json-default">
+		<action name="getData" class="com.java.Training.action.SakilaAction"  method="getData">
+			<result name= "success" type= "json">
+				<param name= "root">result</param>
+			</result>
+		</action>
+		<action name="modifyData" class="com.java.Training.action.SakilaAction"  method="modifyData">
+			<result name= "success" type= "json">
+				<param name= "root">result</param>
+			</result>
+		</action>
+	</package>
+</struts>

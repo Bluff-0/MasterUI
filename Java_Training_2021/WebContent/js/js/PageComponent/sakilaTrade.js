@@ -109,7 +109,8 @@ addElementsToSakilaStore= function() {
 	    			formValues['qType']= 'insert';
 	    			Ext.Ajax.request({
 			            //url: '/Java_Training_2021/api/sakilaModification',
-			            url: '/Struts_WebApp/sakila/modifyData.action',
+			            //url: '/Struts_WebApp/sakila/modifyData.action',
+			            url: '/Spring_WebApp/sakila_spring/modifyData.action',
 			            method: 'GET',
 			            timeout: 60000,
 			            params: formValues,
@@ -267,8 +268,9 @@ editElementsToSakilaStore= function(storeConstructorObject) {
 	    			formValues['qType']= 'update';
 	    			
 	    			Ext.Ajax.request({
-			            //url: '/Java_Training_2021/api/sakilaModification',
-			            url: '/Struts_WebApp/sakila/modifyData.action',
+			            // url: '/Java_Training_2021/api/sakilaModification',
+			            // url: '/Struts_WebApp/sakila/modifyData.action',
+			            url: '/Spring_WebApp/sakila_spring/modifyData.action',
 			            method: 'GET',
 			            timeout: 60000,
 			            params: formValues,
@@ -319,8 +321,9 @@ deleteElementsFromSakilaStore = function (storeConstructorObject) {
 		soft: 0,
 	}
 	Ext.Ajax.request({
-        //url: '/Java_Training_2021/api/sakilaModification',
-        url: '/Struts_WebApp/sakila/modifyData.action',
+        // url: '/Java_Training_2021/api/sakilaModification',
+        // url: '/Struts_WebApp/sakila/modifyData.action',
+        url: '/Spring_WebApp/sakila_spring/modifyData.action',
         method: 'GET',
         timeout: 60000,
         params: transmitObj,
@@ -352,7 +355,8 @@ softDeleteElementsFromSakilaStore = function (storeConstructorObject) {
 		soft: 1,
 	}
 	Ext.Ajax.request({
-        url: '/Struts_WebApp/sakila/modifyData.action',
+        // url: '/Struts_WebApp/sakila/modifyData.action',
+        url: '/Spring_WebApp/sakila_spring/modifyData.action',
         method: 'GET',
         timeout: 60000,
         params: transmitObj,

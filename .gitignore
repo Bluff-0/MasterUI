@@ -1,5 +1,8 @@
 .metadata
 Servers/
+.Hibernate_jars/
+.Spring_jars/
+.Struts_jars/
 
 Java_Training_2021/.classpath
 Java_Training_2021/.project

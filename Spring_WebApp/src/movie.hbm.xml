@@ -1,0 +1,36 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.java.Training.model.Movie" table="film">
+
+		<meta attribute="class-description">
+			mapping of language table to language POJO
+		</meta>
+
+		<id name="film_id" type="integer" column="film_id">
+			<generator class="native" />
+		</id>
+
+		<property name="title" column="title" type="string" />
+
+		<property name="description" column="description" type="string" />
+
+		<property name="release_year" column="release_year" type="integer" />
+
+		<property name="director" column="director" type="string" />
+
+		<property name="rating" column="rating" type="string" />
+
+		<property name="special_features" column="special_features" type="string" />
+		
+		<property name="isDeleted" column="isDeleted" type="integer" />
+		
+		<many-to-one class="com.java.Training.model.Language" lazy="false" fetch="select"  name="language">
+			<column name="language_id" not-null="true"></column>
+		</many-to-one>
+
+	</class>
+</hibernate-mapping>

@@ -27,10 +27,10 @@
         </action>
     </package>
     
-<!--     <package name="fallback" namespace="" extends="struts-default"> -->
-<!--         <action name="*"> -->
-<!--             <result>/Fallback/Error.jsp</result> -->
-<!--         </action> -->
-<!-- 	</package> -->
+    <package name="fallback" namespace="" extends="struts-default">
+        <action name="*">
+            <result>/Fallback/Error.jsp</result>
+        </action>
+	</package>
 	
 </struts>

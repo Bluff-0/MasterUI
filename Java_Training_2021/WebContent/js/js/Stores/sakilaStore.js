@@ -26,7 +26,8 @@ var sakilaStoreServeletObject= {
 var sakilaStoreStrutsObject= {
     proxy: {
         type: 'ajax', 
-        url: '/Struts_WebApp/sakila/getData',
+        // url: '/Struts_WebApp/sakila/getData',
+        url: '/Spring_WebApp/sakila_spring/getData.action',
         reader: {
             type: 'json',
             transform: {

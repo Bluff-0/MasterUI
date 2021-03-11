@@ -1,4 +1,10 @@
-package com.highradius.training.struts.model;
+/**
+ * BEAN : SakilaPojo
+ * DEBUG: toString()
+ * 09-03-2021
+ */
+
+package com.java.Training.model;
 
 public class SakilaPojo 
 {
@@ -88,7 +94,5 @@ public class SakilaPojo
 				+ ", release_year=" + release_year + ", language=" + language + ", director=" + director + ", rating="
 				+ rating + ", special_features=" + special_features + ", isDeleted=" + isDeleted + "]";
 	}
-	
-	
 	
 }
